@@ -12,14 +12,18 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.JList;
 
 public class V_Principal extends JFrame {
 	
 	private JButton btnAcceder;
 	private JTextField textField;
+	private JTable tblPruebas2;
+	private DefaultTableModel dtmPruebas2;
 	
 	public V_Principal() {
 		init();
@@ -62,6 +66,10 @@ public class V_Principal extends JFrame {
 		scrollPane.setBounds(155, 307, 471, 184);
 		getContentPane().add(scrollPane);
 		
+		tblPruebas2 = new JTable();
+		configurarTabla();
+		
+		scrollPane.setViewportView(tblPruebas2);
 		
 		
 		
@@ -82,6 +90,26 @@ public class V_Principal extends JFrame {
 	}
 	
 	public void setControlador (CososControl c) {
+		
+	}
+	
+	private void configurarTabla() {
+		dtmPruebas2 = new DefaultTableModel() {
+			//hacemos la tabla no editable salvo la columna EDAD
+			@Override
+			public boolean isCellEditable(int row, int column) {
+				if (column == 3) {
+					return true;
+				}
+				return false;
+			}
+		};
+		
+		tblPruebas2.setModel(dtmPruebas2);
+		
+		dtmPruebas2.addColumn("URL");
+		
+		tblPruebas2.getColumn("URL").setPreferredWidth(100);
 		
 	}
 }
