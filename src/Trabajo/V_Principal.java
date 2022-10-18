@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Toolkit;
+import java.lang.reflect.Array;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -12,10 +13,13 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JScrollPane;
 import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JList;
 
 public class V_Principal extends JFrame {
 	
 	private JButton btnAcceder;
+	private JTextField textField;
 	
 	public V_Principal() {
 		init();
@@ -49,6 +53,17 @@ public class V_Principal extends JFrame {
 		btnAcceder.setBounds(331, 524, 119, 29);
 		getContentPane().add(btnAcceder);
 		
+		textField = new JTextField();
+		textField.setBounds(286, 219, 191, 39);
+		getContentPane().add(textField);
+		textField.setColumns(10);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(155, 307, 471, 184);
+		getContentPane().add(scrollPane);
+		
+		
+		
 		
 		centrarVentana();
 		setSize(800, 600);
@@ -69,9 +84,6 @@ public class V_Principal extends JFrame {
 	public void setControlador (CososControl c) {
 		
 	}
-
-	
-	
 }
 	
 
