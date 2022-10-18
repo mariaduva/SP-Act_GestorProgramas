@@ -18,8 +18,17 @@ import javax.swing.JList;
 
 public class V_Principal extends JFrame {
 	
-	private JButton btnAcceder;
+	private JButton btnWord;
+	private JButton btnxl;
+	private JButton btnppt;
+	private JButton btnbuscar;
 	private JTextField textField;
+	
+	public static final String BTN_WORD = "WORD";
+	public static final String BTN_EXCEL = "Excel";
+	public static final String BTN_PPT = "PowerPoint";
+	public static final String BTN_BUSCAR = "Buscar";
+
 	
 	public V_Principal() {
 		init();
@@ -33,25 +42,25 @@ public class V_Principal extends JFrame {
 		
 		
 		
-		btnAcceder = new JButton("Excel");
-		btnAcceder.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnAcceder.setBounds(543, 62, 119, 29);
-		getContentPane().add(btnAcceder);
+		btnWord = new JButton("Excel");
+		btnWord.setFont(new Font("Arial", Font.PLAIN, 12));
+		btnWord.setBounds(543, 62, 119, 29);
+		getContentPane().add(btnWord);
 		
-		btnAcceder = new JButton("Word");
-		btnAcceder.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnAcceder.setBounds(102, 62, 119, 29);
-		getContentPane().add(btnAcceder);
+		btnxl = new JButton("Word");
+		btnxl.setFont(new Font("Arial", Font.PLAIN, 12));
+		btnxl.setBounds(102, 62, 119, 29);
+		getContentPane().add(btnxl);
 		
-		btnAcceder = new JButton("Power Point");
-		btnAcceder.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnAcceder.setBounds(317, 62, 119, 29);
-		getContentPane().add(btnAcceder);
+		btnppt = new JButton("Power Point");
+		btnppt.setFont(new Font("Arial", Font.PLAIN, 12));
+		btnppt.setBounds(317, 62, 119, 29);
+		getContentPane().add(btnppt);
 		
-		btnAcceder = new JButton("Buscar");
-		btnAcceder.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnAcceder.setBounds(331, 524, 119, 29);
-		getContentPane().add(btnAcceder);
+		btnbuscar = new JButton("Buscar");
+		btnbuscar.setFont(new Font("Arial", Font.PLAIN, 12));
+		btnbuscar.setBounds(331, 524, 119, 29);
+		getContentPane().add(btnbuscar);
 		
 		textField = new JTextField();
 		textField.setBounds(286, 219, 191, 39);
