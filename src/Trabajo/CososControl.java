@@ -7,9 +7,9 @@ import javax.swing.JButton;
 
 public class CososControl implements ActionListener {
 	
-	private V_Principal vPrin;
+	private VPrincipal vPrin;
 	
-	public CososControl(V_Principal vPrin) {
+	public CososControl(VPrincipal vPrin) {
 	this.vPrin = vPrin;
 	
 	

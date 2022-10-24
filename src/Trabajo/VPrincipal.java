@@ -18,7 +18,7 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JList;
 
-public class V_Principal extends JFrame {
+public class VPrincipal extends JFrame {
 	
 	private JButton btnWord;
 	private JButton btnxl;
@@ -29,12 +29,12 @@ public class V_Principal extends JFrame {
 	private DefaultTableModel dtmPruebas2;
 	
 	public static final String BTN_WORD = "WORD";
-	public static final String BTN_EXCEL = "Excel";
-	public static final String BTN_PPT = "PowerPoint";
-	public static final String BTN_BUSCAR = "Buscar";
+	public static final String BTN_EXCEL = "EXCEL";
+	public static final String BTN_PPT = "POWERPOINT";
+	public static final String BTN_BUSCAR = "BUSCAR";
 
 	
-	public V_Principal() {
+	public VPrincipal() {
 		init();
 	}
 
@@ -99,7 +99,10 @@ public class V_Principal extends JFrame {
 	}
 	
 	public void setControlador (CososControl c) {
-		
+		btnbuscar.addActionListener(c);
+		btnWord.addActionListener(c);
+		btnxl.addActionListener(c);
+		btnppt.addActionListener(c);
 	}
 	
 	private void configurarTabla() {
@@ -121,6 +124,7 @@ public class V_Principal extends JFrame {
 		tblPruebas2.getColumn("URL").setPreferredWidth(100);
 		
 	}
+	
 }
 	
 
