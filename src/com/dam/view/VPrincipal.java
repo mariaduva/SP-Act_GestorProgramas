@@ -29,6 +29,8 @@ public class VPrincipal extends JFrame {
 	public static final String BTN_EXCEL = "EXCEL";
 	public static final String BTN_PPT = "POWERPOINT";
 	public static final String BTN_BUSCAR = "BUSCAR";
+	private static final String VALID_WEBSITE = "^https?://(www2?\\.)?[-a-zA-Z\\d@:%._+~#=]{1,256}\\.[a-zA-Z\\d()]{1,6}\\b([-a-zA-Z\\d()@:%_+.~#?&/=]*)$";
+	
 	
 	private static final int ANCHO = 600;
 	private static final int ALTO = 550;
@@ -139,11 +141,35 @@ public class VPrincipal extends JFrame {
 		tblPruebas2.getColumn("URL").setPreferredWidth(100);
 		
 	}
+	
+	private void cargarTabla() {
+		
+	}
 
 
 	public String verificarUrl() {
-		// TODO Auto-generated method stub
-		return null;
+		String url = textField.getText();
+		boolean esCorrecta = false;
+		
+		while(!esCorrecta) {
+			if (url == null || url.trim().isEmpty()) {
+				mostrarError("URL inválida");			
+			} else if (!url.matches(VALID_WEBSITE)) {
+				mostrarError("URL inválida: La url no tiene sentido");	
+			} else {
+				esCorrecta = true;
+			}
+		}
+		
+		return url;
+	}
+
+
+	private void mostrarError(String error) {
+		lblError.setVisible(true);
+		lblError.setText(error);
+		//lblError.setForeground(red);
+		
 	}
 }
 	
