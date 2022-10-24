@@ -1,19 +1,20 @@
-package Trabajo;
+package com.dam.control;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
+import com.dam.view.VPrincipal;
+
 public class CososControl implements ActionListener {
 	
 	private VPrincipal vPrin;
-	
+
 	public CososControl(VPrincipal vPrin) {
-	this.vPrin = vPrin;
-	
-	
-}
+		this.vPrin = vPrin;
+	}
+
 
 	@Override
 	public void actionPerformed(ActionEvent ev) {

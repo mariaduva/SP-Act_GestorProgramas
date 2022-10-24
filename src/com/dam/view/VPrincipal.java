@@ -1,4 +1,4 @@
-package Trabajo;
+package com.dam.view;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -16,6 +16,9 @@ import javax.swing.JTable;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+
+import com.dam.control.CososControl;
+
 import javax.swing.JList;
 
 public class VPrincipal extends JFrame {
