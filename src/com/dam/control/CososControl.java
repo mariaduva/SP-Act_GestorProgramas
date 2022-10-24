@@ -17,11 +17,11 @@ public class CososControl implements ActionListener {
 		this.vPrin = vPrin;
 	}
 
-
 	@Override
 	public void actionPerformed(ActionEvent ev) {
 		if (ev.getSource() instanceof JButton) {
 			if (ev.getActionCommand().equals(VPrincipal.BTN_WORD)) {
+				//El problema no está en el método si no en la rutaaaaaa, no va ahgg
 				nuevoProceso("C:\\Program Files\\Microsoft Office\\root\\Office16\\WINWORD.EXE");
 
 			}else if (ev.getActionCommand().equals(VPrincipal.BTN_PPT)) {
@@ -32,23 +32,29 @@ public class CososControl implements ActionListener {
 				
 			}else if (ev.getActionCommand().equals(VPrincipal.BTN_BUSCAR)) {
 				 String url = vPrin.verificarUrl();
+				 
+				 while(!url.isEmpty()) {
+					 //ArrayList.add(url);
+					 //vPrin.cargarTabla(ArrayList)
+					 /*ProcessBuilder b = new ProcessBuilder();
+				        
+				        // Create an ArrayList with two values.
+				        // ... This starts a specific browser, which is not ideal.
+				        ArrayList<String> values = new ArrayList<>();
+				        values.add("C:\\Program Files\\Internet Explorer\\iexplore.exe");
+				        values.add("http://en.wikipedia.org/");
+				        
+				        // Pass List to command method.
+				        b.command(values);
+				        try {
+							b.start();
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}*/
+				 }
 				
-				 /*ProcessBuilder b = new ProcessBuilder();
-		        
-		        // Create an ArrayList with two values.
-		        // ... This starts a specific browser, which is not ideal.
-		        ArrayList<String> values = new ArrayList<>();
-		        values.add("C:\\Program Files\\Internet Explorer\\iexplore.exe");
-		        values.add("http://en.wikipedia.org/");
-		        
-		        // Pass List to command method.
-		        b.command(values);
-		        try {
-					b.start();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}*/
+				 
 			}
 		}
 	
