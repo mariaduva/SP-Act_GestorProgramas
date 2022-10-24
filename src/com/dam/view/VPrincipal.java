@@ -3,6 +3,7 @@ package com.dam.view;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Toolkit;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,6 +14,8 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 import com.dam.control.CososControl;
+import com.dam.model.Restaurante;
+import com.dam.persistencia.RestauranteContract;
 
 public class VPrincipal extends JFrame {
 	
@@ -22,8 +25,8 @@ public class VPrincipal extends JFrame {
 	private JButton btnbuscar;
 	private JTextField textField;
 	private JLabel lblError;
-	private JTable tblPruebas2;
-	private DefaultTableModel dtmPruebas2;
+	private JTable tblUrl;
+	private DefaultTableModel tModel;
 	
 	public static final String BTN_WORD = "WORD";
 	public static final String BTN_EXCEL = "EXCEL";
@@ -123,27 +126,16 @@ public class VPrincipal extends JFrame {
 	}
 	
 	private void configurarTabla() {
-		dtmPruebas2 = new DefaultTableModel() {
-			//hacemos la tabla no editable salvo la columna EDAD
-			@Override
-			public boolean isCellEditable(int row, int column) {
-				if (column == 3) {
-					return true;
-				}
-				return false;
-			}
-		};
-		
-		tblPruebas2.setModel(dtmPruebas2);
-		
-		dtmPruebas2.addColumn("URL");
-		
-		tblPruebas2.getColumn("URL").setPreferredWidth(100);
-		
+		tblUrl.setModel(tModel);
+		tModel.addColumn("URL");
+		tblUrl.getColumn("URL").setPreferredWidth(100);
 	}
 	
-	private void cargarTabla() {
+	private void cargarTabla(ArrayList<String> listaUrls) {
 		
+		/*for (String url : listaUrls) {
+			tModel.addRow(url);
+        }*/
 	}
 
 
