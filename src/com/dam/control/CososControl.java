@@ -1,8 +1,12 @@
 package com.dam.control;
 
+import java.awt.Desktop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -12,6 +16,7 @@ import com.dam.view.VPrincipal;
 public class CososControl implements ActionListener {
 	
 	private VPrincipal vPrin;
+	public ArrayList <String> listaUrl;
 
 	public CososControl(VPrincipal vPrin) {
 		this.vPrin = vPrin;
@@ -33,9 +38,9 @@ public class CososControl implements ActionListener {
 				 String url = vPrin.verificarUrl();
 				 
 				 while(!url.isEmpty()) {
-					 //ArrayList.add(url);
-					 //vPrin.cargarTabla(ArrayList)
-					 /*ProcessBuilder b = new ProcessBuilder();
+					 listaUrl.add(url);
+					 vPrin.cargarTabla(listaUrl);
+					 ProcessBuilder b = new ProcessBuilder();
 				        
 				        // Create an ArrayList with two values.
 				        // ... This starts a specific browser, which is not ideal.
@@ -50,7 +55,23 @@ public class CososControl implements ActionListener {
 						} catch (IOException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
-						}*/
+						}
+					 
+				        try {
+				        URL link = new URL("www.google.com");
+				        System.out.println("hola");
+				        
+				        try {
+				            Desktop.getDesktop().browse(link.toURI());
+				        } catch (IOException e) {
+				            e.printStackTrace();
+				        } catch (URISyntaxException e) {
+				            e.printStackTrace();
+				        }
+				        }catch (MalformedURLException e1) {
+				            e1.printStackTrace();
+				        }
+					
 				 }
 				
 				 

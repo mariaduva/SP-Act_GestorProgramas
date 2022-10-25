@@ -137,7 +137,7 @@ public class VPrincipal extends JFrame {
 		tblUrl.getColumn("URL").setPreferredWidth(100);
 	}
 	
-	private void cargarTabla(ArrayList<String> listaUrls) {
+	public void cargarTabla(ArrayList<String> listaUrls) {
 		
 		/*for (String url : listaUrls) {
 			tModel.addRow(url);
@@ -151,17 +151,21 @@ public class VPrincipal extends JFrame {
 		System.out.println(url);
 		
 		while(!esCorrecta) {
-			System.out.println(url);
+			
 			if (url == null || url.trim().isEmpty()) {
-				mostrarError("URL inválida");			
+				mostrarError("URL inválida");
+				break;
 			} else if (!url.matches(VALID_WEBSITE)) {
 				mostrarError("URL inválida: La url no tiene sentido");	
+				break;
 			} else {
 				esCorrecta = true;
+				return url;
 			}
 		}
-		
 		return url;
+		
+	
 	}
 
 
