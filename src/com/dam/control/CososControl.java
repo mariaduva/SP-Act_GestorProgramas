@@ -24,6 +24,8 @@ public class CososControl implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent ev) {
+		listaUrl = new ArrayList<>();
+		
 		if (ev.getSource() instanceof JButton) {
 			if (ev.getActionCommand().equals(VPrincipal.BTN_WORD)) {
 				nuevoProceso("C:\\Program Files\\Microsoft Office\\root\\Office16\\WINWORD.EXE");
@@ -37,11 +39,13 @@ public class CososControl implements ActionListener {
 			}else if (ev.getActionCommand().equals(VPrincipal.BTN_BUSCAR)) {
 				 String url = vPrin.verificarUrl();
 				 
+				 
 				 if(!url.isEmpty()) {
 					 System.out.println("Holaa");
-					 /*listaUrl.add(url);
+					 listaUrl.add("Hola");
+					 listaUrl.add("A");
 					 vPrin.cargarTabla(listaUrl);
-					 ProcessBuilder b = new ProcessBuilder();
+					 /*ProcessBuilder b = new ProcessBuilder();
 				        
 				        // Create an ArrayList with two values.
 				        // ... This starts a specific browser, which is not ideal.

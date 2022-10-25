@@ -135,7 +135,7 @@ public class VPrincipal extends JFrame {
 		
 		tModel.getDataVector().clear();
 		
-		Object[]row = new Object [0];
+		Object[]row = new Object [1];
 		
 		for (String str : listaUrls) {
 			
@@ -150,18 +150,13 @@ public class VPrincipal extends JFrame {
 
 	public String verificarUrl() {
 		String url = textField.getText();
-				
-		/*if (url == null || url.trim().isEmpty()) {
-			System.out.println("Hulaa");
-				mostrarError("URL inválida");
-				*/
+		
 		if (!url.matches(VALID_WEBSITE)) {
 				mostrarError("URL inválida: La url no tiene sentido");
 				url = "";	
 		}
 			return url;
 		}
-		
 		
 
 	private void mostrarError(String error) {
