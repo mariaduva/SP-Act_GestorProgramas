@@ -14,8 +14,6 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 import com.dam.control.CososControl;
-import com.dam.model.Restaurante;
-import com.dam.persistencia.RestauranteContract;
 
 public class VPrincipal extends JFrame {
 	
@@ -80,10 +78,10 @@ public class VPrincipal extends JFrame {
 		scrollPane.setBounds(57, 260, 471, 184);
 		getContentPane().add(scrollPane);
 		
-		tblPruebas2 = new JTable();
+		tblUrl = new JTable();
 		configurarTabla();
 		
-		scrollPane.setViewportView(tblPruebas2);
+		scrollPane.setViewportView(tblUrl);
 		
 		JLabel lblTitulo = new JLabel("Gestor de Aplicaciones / Buscador web");
 		lblTitulo.setFont(new Font("Arial", Font.PLAIN, 12));
@@ -126,8 +124,16 @@ public class VPrincipal extends JFrame {
 	}
 	
 	private void configurarTabla() {
+		tModel = new DefaultTableModel() {
+			public boolean isCellEditable(int row, int column) {
+				return false;
+			}
+		};
+		
 		tblUrl.setModel(tModel);
+		
 		tModel.addColumn("URL");
+		
 		tblUrl.getColumn("URL").setPreferredWidth(100);
 	}
 	

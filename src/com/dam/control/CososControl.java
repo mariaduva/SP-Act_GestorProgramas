@@ -21,7 +21,7 @@ public class CososControl implements ActionListener {
 	public void actionPerformed(ActionEvent ev) {
 		if (ev.getSource() instanceof JButton) {
 			if (ev.getActionCommand().equals(VPrincipal.BTN_WORD)) {
-				//El problema no está en el método si no en la rutaaaaaa, no va ahgg
+				
 				nuevoProceso("C:\\Program Files\\Microsoft Office\\root\\Office16\\WINWORD.EXE");
 
 			}else if (ev.getActionCommand().equals(VPrincipal.BTN_PPT)) {
@@ -63,14 +63,9 @@ public class CososControl implements ActionListener {
 
 	private void nuevoProceso(String ruta) {
 		try {
-			//Process miProceso = new ProcessBuilder(ruta).start();
-			
-			ProcessBuilder p = new ProcessBuilder();
-	        p.command(ruta);
-	        p.start();
+			Process miProceso = new ProcessBuilder(ruta).start();
 			Thread.sleep(5000);
-			
-			//miProceso.destroy();
+			miProceso.destroy();
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (InterruptedException e) {
