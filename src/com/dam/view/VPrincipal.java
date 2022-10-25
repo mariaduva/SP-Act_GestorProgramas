@@ -154,6 +154,7 @@ public class VPrincipal extends JFrame {
 				mostrarError("URL inválida: La url no tiene sentido");
 				url = "";	
 		}
+			textField.setText("");
 			return url;
 		}
 		
