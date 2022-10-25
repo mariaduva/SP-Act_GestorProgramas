@@ -139,9 +139,19 @@ public class VPrincipal extends JFrame {
 	
 	public void cargarTabla(ArrayList<String> listaUrls) {
 		
-		/*for (String url : listaUrls) {
-			tModel.addRow(url);
-        }*/
+		
+		tModel.getDataVector().clear();
+		
+		Object[]row = new Object [0];
+		
+		for (String str : listaUrls) {
+			
+			row [0] = str;
+			
+			
+			tModel.addRow(row);
+		}
+				
 	}
 
 
