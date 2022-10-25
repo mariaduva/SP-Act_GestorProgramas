@@ -143,6 +143,12 @@ public class VPrincipal extends JFrame {
 			
 			tModel.addRow(row);
 		}
+		
+		tblUrl.getSelectionModel().addListSelectionListener(e -> {
+            if (tblUrl.getSelectedRow() != -1) {
+                textField.setText(tblUrl.getValueAt(tblUrl.getSelectedRow(), 0).toString());
+            }
+        });
 				
 	}
 

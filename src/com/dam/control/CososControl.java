@@ -56,13 +56,9 @@ public class CososControl implements ActionListener {
 	private void nuevoProceso(String ruta) {
 		try {
 			Process miProceso = new ProcessBuilder(ruta).start();
-			Thread.sleep(15000);
-			miProceso.destroy();
 		} catch (IOException e) {
 			e.printStackTrace();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		} 
 		
 	}
 }
