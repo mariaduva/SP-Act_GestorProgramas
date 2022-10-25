@@ -21,7 +21,6 @@ public class CososControl implements ActionListener {
 	public void actionPerformed(ActionEvent ev) {
 		if (ev.getSource() instanceof JButton) {
 			if (ev.getActionCommand().equals(VPrincipal.BTN_WORD)) {
-				
 				nuevoProceso("C:\\Program Files\\Microsoft Office\\root\\Office16\\WINWORD.EXE");
 
 			}else if (ev.getActionCommand().equals(VPrincipal.BTN_PPT)) {
@@ -64,7 +63,7 @@ public class CososControl implements ActionListener {
 	private void nuevoProceso(String ruta) {
 		try {
 			Process miProceso = new ProcessBuilder(ruta).start();
-			Thread.sleep(5000);
+			Thread.sleep(15000);
 			miProceso.destroy();
 		} catch (IOException e) {
 			e.printStackTrace();

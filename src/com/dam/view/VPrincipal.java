@@ -49,22 +49,22 @@ public class VPrincipal extends JFrame {
 		
 		
 		
-		btnWord = new JButton("Excel");
+		btnWord = new JButton(BTN_EXCEL);
 		btnWord.setFont(new Font("Arial", Font.PLAIN, 12));
 		btnWord.setBounds(378, 77, 150, 29);
 		getContentPane().add(btnWord);
 		
-		btnxl = new JButton("Word");
+		btnxl = new JButton(BTN_WORD);
 		btnxl.setFont(new Font("Arial", Font.PLAIN, 12));
 		btnxl.setBounds(58, 77, 150, 29);
 		getContentPane().add(btnxl);
 		
-		btnppt = new JButton("Power Point");
+		btnppt = new JButton(BTN_PPT);
 		btnppt.setFont(new Font("Arial", Font.PLAIN, 12));
 		btnppt.setBounds(218, 77, 150, 29);
 		getContentPane().add(btnppt);
 		
-		btnbuscar = new JButton("Buscar");
+		btnbuscar = new JButton(BTN_BUSCAR);
 		btnbuscar.setFont(new Font("Arial", Font.PLAIN, 12));
 		btnbuscar.setBounds(407, 187, 119, 29);
 		getContentPane().add(btnbuscar);
@@ -148,8 +148,10 @@ public class VPrincipal extends JFrame {
 	public String verificarUrl() {
 		String url = textField.getText();
 		boolean esCorrecta = false;
+		System.out.println(url);
 		
 		while(!esCorrecta) {
+			System.out.println(url);
 			if (url == null || url.trim().isEmpty()) {
 				mostrarError("URL inválida");			
 			} else if (!url.matches(VALID_WEBSITE)) {
