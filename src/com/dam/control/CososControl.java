@@ -37,8 +37,9 @@ public class CososControl implements ActionListener {
 			}else if (ev.getActionCommand().equals(VPrincipal.BTN_BUSCAR)) {
 				 String url = vPrin.verificarUrl();
 				 
-				 while(!url.isEmpty()) {
-					 listaUrl.add(url);
+				 if(!url.isEmpty()) {
+					 System.out.println("Holaa");
+					 /*listaUrl.add(url);
 					 vPrin.cargarTabla(listaUrl);
 					 ProcessBuilder b = new ProcessBuilder();
 				        
@@ -70,7 +71,7 @@ public class CososControl implements ActionListener {
 				        }
 				        }catch (MalformedURLException e1) {
 				            e1.printStackTrace();
-				        }
+				        }*/
 					
 				 }
 				

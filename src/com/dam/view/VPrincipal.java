@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
@@ -22,7 +23,6 @@ public class VPrincipal extends JFrame {
 	private JButton btnppt;
 	private JButton btnbuscar;
 	private JTextField textField;
-	private JLabel lblError;
 	private JTable tblUrl;
 	private DefaultTableModel tModel;
 	
@@ -30,11 +30,11 @@ public class VPrincipal extends JFrame {
 	public static final String BTN_EXCEL = "EXCEL";
 	public static final String BTN_PPT = "POWERPOINT";
 	public static final String BTN_BUSCAR = "BUSCAR";
-	private static final String VALID_WEBSITE = "^https?://(www2?\\.)?[-a-zA-Z\\d@:%._+~#=]{1,256}\\.[a-zA-Z\\d()]{1,6}\\b([-a-zA-Z\\d()@:%_+.~#?&/=]*)$";
+	private static final String VALID_WEBSITE = "^((https?|ftp|smtp):\\/\\/)?(www.)?[a-z0-9]+\\.[a-z]+(\\/[a-zA-Z0-9#]+\\/?)*$";
 	
 	
 	private static final int ANCHO = 600;
-	private static final int ALTO = 550;
+	private static final int ALTO = 500;
 	
 	
 	public VPrincipal() {
@@ -66,16 +66,16 @@ public class VPrincipal extends JFrame {
 		
 		btnbuscar = new JButton(BTN_BUSCAR);
 		btnbuscar.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnbuscar.setBounds(407, 187, 119, 29);
+		btnbuscar.setBounds(407, 160, 119, 29);
 		getContentPane().add(btnbuscar);
 		
 		textField = new JTextField();
-		textField.setBounds(58, 187, 339, 29);
+		textField.setBounds(58, 160, 339, 29);
 		getContentPane().add(textField);
 		textField.setColumns(10);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(57, 260, 471, 184);
+		scrollPane.setBounds(57, 233, 471, 184);
 		getContentPane().add(scrollPane);
 		
 		tblUrl = new JTable();
@@ -88,16 +88,9 @@ public class VPrincipal extends JFrame {
 		lblTitulo.setBounds(26, 32, 222, 13);
 		getContentPane().add(lblTitulo);
 		
-		lblError = new JLabel("URL no v\u00E1lida ");
-		lblError.setVisible(false);
-		lblError.setInheritsPopupMenu(false);
-		lblError.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblError.setBounds(58, 166, 310, 13);
-		getContentPane().add(lblError);
-		
 		JLabel lblTUrl = new JLabel("Ultimas URL buscadas:");
 		lblTUrl.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblTUrl.setBounds(58, 237, 150, 13);
+		lblTUrl.setBounds(58, 199, 150, 13);
 		getContentPane().add(lblTUrl);
 		
 		centrarVentana();
@@ -157,32 +150,23 @@ public class VPrincipal extends JFrame {
 
 	public String verificarUrl() {
 		String url = textField.getText();
-		boolean esCorrecta = false;
-		System.out.println(url);
-		
-		while(!esCorrecta) {
-			
-			if (url == null || url.trim().isEmpty()) {
+				
+		/*if (url == null || url.trim().isEmpty()) {
+			System.out.println("Hulaa");
 				mostrarError("URL inválida");
-				break;
-			} else if (!url.matches(VALID_WEBSITE)) {
-				mostrarError("URL inválida: La url no tiene sentido");	
-				break;
-			} else {
-				esCorrecta = true;
-				return url;
-			}
+				*/
+		if (!url.matches(VALID_WEBSITE)) {
+				mostrarError("URL inválida: La url no tiene sentido");
+				url = "";	
 		}
-		return url;
+			return url;
+		}
 		
-	
-	}
-
+		
 
 	private void mostrarError(String error) {
-		lblError.setVisible(true);
-		lblError.setText(error);
-		//lblError.setForeground(red);
+		JOptionPane.showMessageDialog(this, error, 
+				"Error de datos", JOptionPane.ERROR_MESSAGE);
 		
 	}
 }
