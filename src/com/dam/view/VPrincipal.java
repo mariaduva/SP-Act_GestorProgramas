@@ -132,7 +132,6 @@ public class VPrincipal extends JFrame {
 	
 	public void cargarTabla(ArrayList<String> listaUrls) {
 		
-		
 		tModel.getDataVector().clear();
 		
 		Object[]row = new Object [1];

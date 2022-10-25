@@ -4,9 +4,6 @@ import java.awt.Desktop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URISyntaxException;
-import java.net.URL;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -16,7 +13,7 @@ import com.dam.view.VPrincipal;
 public class CososControl implements ActionListener {
 	
 	private VPrincipal vPrin;
-	public ArrayList <String> listaUrl;
+	public ArrayList <String> listaUrl = new ArrayList<>();
 
 	public CososControl(VPrincipal vPrin) {
 		this.vPrin = vPrin;
@@ -24,8 +21,6 @@ public class CososControl implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent ev) {
-		listaUrl = new ArrayList<>();
-		
 		if (ev.getSource() instanceof JButton) {
 			if (ev.getActionCommand().equals(VPrincipal.BTN_WORD)) {
 				nuevoProceso("C:\\Program Files\\Microsoft Office\\root\\Office16\\WINWORD.EXE");
@@ -41,41 +36,13 @@ public class CososControl implements ActionListener {
 				 
 				 
 				 if(!url.isEmpty()) {
-					 System.out.println("Holaa");
-					 listaUrl.add("Hola");
-					 listaUrl.add("A");
+					 listaUrl.add(url);
 					 vPrin.cargarTabla(listaUrl);
-					 /*ProcessBuilder b = new ProcessBuilder();
-				        
-				        // Create an ArrayList with two values.
-				        // ... This starts a specific browser, which is not ideal.
-				        ArrayList<String> values = new ArrayList<>();
-				        values.add("C:\\Program Files\\Internet Explorer\\iexplore.exe");
-				        values.add("http://en.wikipedia.org/");
-				        
-				        // Pass List to command method.
-				        b.command(values);
-				        try {
-							b.start();
-						} catch (IOException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-					 
-				        try {
-				        URL link = new URL("www.google.com");
-				        System.out.println("hola");
-				        
-				        try {
-				            Desktop.getDesktop().browse(link.toURI());
-				        } catch (IOException e) {
-				            e.printStackTrace();
-				        } catch (URISyntaxException e) {
-				            e.printStackTrace();
-				        }
-				        }catch (MalformedURLException e1) {
-				            e1.printStackTrace();
-				        }*/
+					 try {
+						java.awt.Desktop.getDesktop().browse(java.net.URI.create(url));
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
 					
 				 }
 				
